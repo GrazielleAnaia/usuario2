@@ -26,6 +26,7 @@ public class UsuarioConverter {
 
     public List<Endereco> paraListaEndereco(List<EnderecoDTO> enderecoDTOS) {
         return enderecoDTOS.stream().map(this::paraEndereco).toList();
+
     }
 
     public Endereco paraEndereco(EnderecoDTO enderecoDTO) {
@@ -37,6 +38,8 @@ public class UsuarioConverter {
                 .estado(enderecoDTO.getEstado())
                 .cep(enderecoDTO.getCep())
                 .build();
+
+
     }
 
     public List<Telefone> paraListaTelefone(List<TelefoneDTO> telefoneDTOS) {
