@@ -2,6 +2,7 @@ package com.grazielleanaia.usuario2.infrastructure.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,6 +10,8 @@ import java.util.Collection;
 import java.util.List;
 @Entity
 @Table(name = "usuario")
+@Builder
+
 
 public class Usuario implements UserDetails {
 
