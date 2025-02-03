@@ -1,10 +1,11 @@
 package com.grazielleanaia.usuario2.infrastructure.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 @Entity
 @Table(name = "endereco")
-
+@Builder
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
