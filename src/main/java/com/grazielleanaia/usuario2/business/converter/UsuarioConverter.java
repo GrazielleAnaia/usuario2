@@ -63,7 +63,7 @@ public class UsuarioConverter {
                 .build();
     }
 
-    public List<EnderecoDTO> paraListaEnderecoDTO (List<Endereco> enderecoDTOS) {
+    public List<EnderecoDTO> paraListaEnderecoDTO(List<Endereco> enderecoDTOS) {
         return enderecoDTOS.stream().map(this::paraEnderecoDTO).toList();
     }
 
@@ -90,6 +90,16 @@ public class UsuarioConverter {
                 .build();
     }
 
+    public Usuario updateUsuario(UsuarioDTO usuarioDTO, Usuario entity) {
+        return Usuario.builder() //method to update only for user
+                .nome(usuarioDTO.getNome() != null ? usuarioDTO.getNome() : entity.getNome())
+                .id(entity.getId()) //obtain from DB
+                .senha(usuarioDTO.getSenha() != null ? usuarioDTO.getSenha() : entity.getSenha())
+                .email(usuarioDTO.getEmail() != null ? usuarioDTO.getEmail() : entity.getEmail())
+                .telefones(entity.getTelefones())
+                .enderecos(entity.getEnderecos())
+                .build();
+    }
 
 
 }
