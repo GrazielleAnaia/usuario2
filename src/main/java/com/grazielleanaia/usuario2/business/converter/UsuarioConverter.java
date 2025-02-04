@@ -38,8 +38,6 @@ public class UsuarioConverter {
                 .estado(enderecoDTO.getEstado())
                 .cep(enderecoDTO.getCep())
                 .build();
-
-
     }
 
     public List<Telefone> paraListaTelefone(List<TelefoneDTO> telefoneDTOS) {
@@ -51,13 +49,7 @@ public class UsuarioConverter {
                 .numero(telefoneDTO.getNumero())
                 .ddd(telefoneDTO.getDdd())
                 .build();
-
-
     }
-
-
-
-
 
 //Returning DTO -- converting entity to DTO
 
