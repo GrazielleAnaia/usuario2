@@ -1,6 +1,7 @@
 package com.grazielleanaia.usuario2.infrastructure.repository;
 
-import com.grazielleanaia.learningspring.infrastructure.entity.Endereco;
+
+import com.grazielleanaia.usuario2.infrastructure.entity.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
