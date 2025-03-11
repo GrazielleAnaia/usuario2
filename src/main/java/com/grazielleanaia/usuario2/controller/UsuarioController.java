@@ -61,6 +61,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.atualizaEndereco(id, dto));
     }
 
+
     @PutMapping("/telefone")
     public ResponseEntity<TelefoneDTO> atualizaTelefone(@RequestBody TelefoneDTO dto,
                                                         @RequestParam("id") Long id) {
