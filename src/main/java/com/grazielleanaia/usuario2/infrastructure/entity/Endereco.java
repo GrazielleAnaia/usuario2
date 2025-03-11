@@ -26,7 +26,7 @@ public class Endereco {
     @Column(name = "estado")
     private String estado;
 
-    @Column(name= "cep")
+    @Column(name = "cep")
     private String cep;
 
     public Endereco() {
