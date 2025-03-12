@@ -1,9 +1,11 @@
 package com.grazielleanaia.usuario2.controller;
 
 import com.grazielleanaia.usuario2.business.UsuarioService;
+import com.grazielleanaia.usuario2.business.ViaCepService;
 import com.grazielleanaia.usuario2.business.dto.EnderecoDTO;
 import com.grazielleanaia.usuario2.business.dto.TelefoneDTO;
 import com.grazielleanaia.usuario2.business.dto.UsuarioDTO;
+import com.grazielleanaia.usuario2.infrastructure.client.ViaCepDTO;
 import com.grazielleanaia.usuario2.infrastructure.entity.Usuario;
 import com.grazielleanaia.usuario2.infrastructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,7 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
+    private final ViaCepService viaCepService;
 
     @PostMapping
     public ResponseEntity<UsuarioDTO> salvaUsuario(@RequestBody UsuarioDTO usuarioDTO) {
@@ -66,5 +69,10 @@ public class UsuarioController {
     public ResponseEntity<TelefoneDTO> atualizaTelefone(@RequestBody TelefoneDTO dto,
                                                         @RequestParam("id") Long id) {
         return ResponseEntity.ok(usuarioService.atualizaTelefone(id, dto));
+    }
+
+    @GetMapping("/endereco/{cep}")
+    public ResponseEntity<ViaCepDTO> buscarDadosCep(@PathVariable ("cep") String cep) {
+        return ResponseEntity.ok(viaCepService.buscarDadosEndereco(cep));
     }
 }
