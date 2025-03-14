@@ -6,8 +6,10 @@ import com.grazielleanaia.usuario2.business.dto.EnderecoDTO;
 import com.grazielleanaia.usuario2.business.dto.TelefoneDTO;
 import com.grazielleanaia.usuario2.business.dto.UsuarioDTO;
 import com.grazielleanaia.usuario2.infrastructure.client.ViaCepDTO;
-import com.grazielleanaia.usuario2.infrastructure.entity.Usuario;
 import com.grazielleanaia.usuario2.infrastructure.security.JwtUtil;
+import com.grazielleanaia.usuario2.infrastructure.security.SecurityConfig;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +20,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
+
+
+@Tag(name = "Usuario", description = "Cadastra usuarios")
+@SecurityRequirement(name = SecurityConfig.SECURITY_SCHEME)
 
 public class UsuarioController {
     private final UsuarioService usuarioService;
@@ -63,7 +69,6 @@ public class UsuarioController {
                                                         @RequestParam("id") Long id) {
         return ResponseEntity.ok(usuarioService.atualizaEndereco(id, dto));
     }
-
 
     @PutMapping("/telefone")
     public ResponseEntity<TelefoneDTO> atualizaTelefone(@RequestBody TelefoneDTO dto,
