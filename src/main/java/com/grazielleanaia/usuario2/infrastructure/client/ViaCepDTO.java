@@ -26,4 +26,6 @@ public class ViaCepDTO {
         public String ddd;
         public String siafi;
 
+
+
 }
