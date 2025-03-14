@@ -78,7 +78,6 @@ public class UsuarioService {
                 new ResourceNotFoundException("Email not found."));
         Usuario usuario = usuarioConverter.updateUsuario(dto, usuarioEntity);
         //usuario.setSenha(passwordEncoder.encode(usuario.getPassword()));
-
         return usuarioConverter.paraUsuarioDTO(usuarioRepository.save(usuario));
     }
 
@@ -114,5 +113,7 @@ public class UsuarioService {
         Telefone telefoneEntity = telefoneRepository.save(telefone);
         return usuarioConverter.paraTelefoneDTO(telefoneEntity);
     }
+
+
 
 }
