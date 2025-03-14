@@ -19,13 +19,16 @@ public class Telefone {
     @Column(name = "ddd")
     private String ddd;
 
+    private Long usuario_id;
+
     public Telefone() {
     }
 
-    public Telefone(Long id, String numero, String ddd) {
+    public Telefone(Long usuario_id, Long id, String numero, String ddd) {
         this.id = id;
         this.numero = numero;
         this.ddd = ddd;
+        this.usuario_id = usuario_id;
     }
 
     public Long getId() {
@@ -50,5 +53,13 @@ public class Telefone {
 
     public void setDdd(String ddd) {
         this.ddd = ddd;
+    }
+
+    public Long getUsuario_id() {
+        return usuario_id;
+    }
+
+    public void setUsuario_id(Long usuario_id) {
+        this.usuario_id = usuario_id;
     }
 }
